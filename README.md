@@ -8,17 +8,18 @@ During 2020 Spring ~ 2021 Fall
 > Gachon Univ, AI·Software department   
 > Author :  이수빈, 유정재, 서수영, 장휘준   
 > Prof. Jung Yongju   
-
+   
 ***
+   
+## 📕 Contents
+* Introdution
+* Structure Design
+* Description Model
+* Testing & Result
+* Open Source & Environment
 
-## 📕 목차
-* 소개
-* 설계과정 (주제 선정 이유 포함)
-* 모델 설명 + 설치 방법 + 결과
-* 사용된 오픈소스 및 툴, 환경
 
-
-## 소개
+## Introdution
 저희 졸업 작품 프로젝트의 주제는 '이미지 생성방식에 따라 학습 후 판별하는 네트워크'인 **Split-Detection-Network**를 활용한 deepfake detection model입니다.   
 
 현재 사회적으로 많은 분야에서 Deepfake를 활용한 영상과 사진들이 생겨나고 있습니다. 이는 긍정적인 영향도 있으나 불법 성인물, 가짜 뉴스, 금융 사기 등에 악용되기도 합니다. 따라서 이를 해결하기 위한 수많은 deepfake detection 기술들이 발전하고 있는데요. 저희 팀은 이러한 사회적 문제에 관심을 가지게되어 더욱 효과적인 deepfake detection model을 개발하여 누구나 사용하고 발전시킬 수 있도록하여 사회적 문제에 기여하는 것을 최종 목표로 삼았습니다.
@@ -37,14 +38,14 @@ During 2020 Spring ~ 2021 Fall
 저희는 기존의 모델들은 이러한 Gan과 Non-gan으로 제작된 이미지들을 구분하지 않고 학습하는 점에 주목하여, **이미지의 생성방식에 따라 나누어서 학습**한다면 Deepfake Detection에 더욱 좋은 효과를 보일 것이라는 아이디어를 내었고, 이를 발전시키어 저희 모델에 접목시키고자 하였습니다.
 
 
-## 모델 설명
+## Description Model
 
 이를 위해 저희는 입력된 이미지가 Gan으로 제작되었는지, Non-Gan으로 제작된 이미지인지를 먼저 구분하는 판별기를 선행 학습시킨 후, 이를 통해 판별된 이미지들을 그 생성 방식에 따라 최적화된 Classifier model로 이미지를 보내서 최종적으로 Real Image인지, Fake Image인지를 판별하는 구조를 만들었습니다. 전체적인 구조는 다음과 같습니다.   
 ![image](https://user-images.githubusercontent.com/32592754/118757968-1074b580-b8a9-11eb-8d81-241af2d56e4d.png)   
 
 자세한 모델 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Model-Description)을 참고해주시길 바랍니다.
 
-## 테스팅 결과
+## Testing & Result
 ![image](https://user-images.githubusercontent.com/32592754/118758037-3437fb80-b8a9-11eb-8095-383c7be8a6c2.png)   
 
 Deepfake를 통한 변조 영상들이 인터넷 상에 유포될 때는 압축되거나 해상도가 낮아지는 부분이 있습니다. 따라서 이러한 상황을 가정하여 JPEG압축, downSampling을 테스트과정에 추가하였습니다. JPEG압축은 55%, 75%의 압축률로, downsampling의 경우 64x64 사이즈로 진행하였습니다.   
@@ -54,7 +55,7 @@ raw 데이터와 JPEG 55 압축에선 baseline model과 비슷한 결과를 보�
 테스트를 위한 사용된 데이터셋 및 베이스 라인 모델에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Dataset)을 참고해주시길 바랍니다.   
 
 
-## 사용된 오픈소스 및 툴, 환경
+## Open Source & Environment
 
 __Open source & Tools used  :__   
 * OpenCV   
