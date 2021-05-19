@@ -9,9 +9,10 @@ During 2020 Spring ~ 2021 Fall
 ## 📕 Contents
 * Introdution
 * Structure Design
+* Development Environment
 * Description Model
 * Testing & Result
-* Open Source & Environment
+* Open Source & Tools used
 
 
 ## Introdution
@@ -33,9 +34,10 @@ During 2020 Spring ~ 2021 Fall
 저희는 기존의 모델들은 이러한 Gan과 Non-gan으로 제작된 이미지들을 구분하지 않고 학습하는 점에 주목하여, **이미지의 생성방식에 따라 나누어서 학습**한다면 Deepfake Detection에 더욱 좋은 효과를 보일 것이라는 아이디어를 내었고, 이를 발전시키어 저희 모델에 접목시키고자 하였습니다.
 
 
+## Development Environment
+
 ## Description Model
 
-이를 위해 저희는 입력된 이미지가 Gan으로 제작되었는지, Non-Gan으로 제작된 이미지인지를 먼저 구분하는 판별기를 선행 학습시킨 후, 이를 통해 판별된 이미지들을 그 생성 방식에 따라 최적화된 Classifier model로 이미지를 보내서 최종적으로 Real Image인지, Fake Image인지를 판별하는 구조를 만들었습니다. 전체적인 구조는 다음과 같습니다.   
 ![image](https://user-images.githubusercontent.com/32592754/118757968-1074b580-b8a9-11eb-8d81-241af2d56e4d.png)   
 
 자세한 모델 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Model-Description)을 참고해주시길 바랍니다.
@@ -43,14 +45,10 @@ During 2020 Spring ~ 2021 Fall
 ## Testing & Result
 ![image](https://user-images.githubusercontent.com/32592754/118758037-3437fb80-b8a9-11eb-8095-383c7be8a6c2.png)   
 
-Deepfake를 통한 변조 영상들이 인터넷 상에 유포될 때는 압축되거나 해상도가 낮아지는 부분이 있습니다. 따라서 이러한 상황을 가정하여 JPEG압축, downSampling을 테스트과정에 추가하였습니다. JPEG압축은 55%, 75%의 압축률로, downsampling의 경우 64x64 사이즈로 진행하였습니다.   
-
-raw 데이터와 JPEG 55 압축에선 baseline model과 비슷한 결과를 보였고, JPEG 75 압축에서는 1 정도 낮은 결과를 보였지만, downscale에서는 눈에 띄게 좋은 결과를 얻을 수 있었습니다. 결론적으로 저희 모델은 원본 이미지 파일 형식 판별에서도 좋은 성능을 보이며, 특히 **DownSampling된 파일에서 기존 모델보다 강한 성능을 보이는 모델**을 개발하였습니다.
-
-테스트를 위한 사용된 데이터셋 및 베이스 라인 모델에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Dataset)을 참고해주시길 바랍니다.   
+테스트를 위한 사용된 데이터셋 및 베이스 라인 모델에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset)을 참고해주시길 바랍니다.   
 
 
-## Open Source & Environment
+## Open Source & Tools used
 
 __Open source & Tools used  :__   
 * OpenCV   
