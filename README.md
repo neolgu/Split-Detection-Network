@@ -21,8 +21,7 @@ __Graduation Project__
 저희 졸업 작품 프로젝트의 주제는 '이미지 생성방식에 따라 학습 후 판별하는 네트워크'인 split-detection network를 활용한 deepfake detection model입니다. 현재 사회적으로 많은 분야에 deepfake를 활용한 영상과 사진들이 생겨나고 있습니다. 이는 긍정적인 방면 뿐만 아니라 불법 성인물, 가짜 뉴스, 금융 사기 등에 악용되기도 합니다. 또한, 이를 해결하기 위한 deepfake detection 기술들이 발전하고 있는데요. 저희 팀은 이러한 문제에 관심을 가지고, 더욱 효과적인 deepfake detection model을 개발하여 사회적 문제에 기여하는 것을 최종 목표로 삼았습니다.
 Deepfake image를 입력하면 해당 이미지가 위조된 이미지인지 위조되지 않은 이미지인지를 알려주는 모델을 구성하였습니다. 
 해당 모델을 웹페이지 등을 통해서 사용하면 편리하게 이용할 수 있습니다.
-아래 영상을 참고해주세요.
-https://youtu.be/sOAt3-JygYE
+
 
 ## 설계과정
 
@@ -41,7 +40,6 @@ https://youtu.be/sOAt3-JygYE
 만들어진 모델을 테스팅하였을 때...   
 ![image](https://user-images.githubusercontent.com/32592754/118758037-3437fb80-b8a9-11eb-8095-383c7be8a6c2.png)   
 raw 데이터와 JPEG 55 압축에선 baseline model과 비슷한 결과를 보였고, JPEG 75압축에서는 1정도 낮은 결과를 보였지만, downscale에서는 눈에 띄게 좋은 결과를 얻을 수 있었습니다. 결론적으로 저희 모델은 원본 이미지 파일 형식 판별에서도 좋은 성능을 보이며, 특히 DownSampling된 파일에서 기존 모델보다 강한 성능을 보이는 모델을 개발하였습니다.   
-
 
 
 ## 사용된 오픈소스 및 툴, 환경
