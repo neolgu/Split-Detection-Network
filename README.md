@@ -1,9 +1,12 @@
 # Split-Detection-Network
 
+![image](https://user-images.githubusercontent.com/32592754/118756673-6300a280-b8a6-11eb-92a0-1df4ae9f776a.png)   
+__Graduation Project__
+
 ## 기여자
 
 Gachon Univ, AI·Software department   
-이수빈, 유정재, 서수영, 장휘준   
+Author - 이수빈, 유정재, 서수영, 장휘준   
 Prof. Jung Yongju   
 
 ***
