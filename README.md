@@ -41,7 +41,11 @@ Deepfake image를 입력하면 해당 이미지가 위조된 이미지인지 위
 ![image](https://user-images.githubusercontent.com/32592754/118758037-3437fb80-b8a9-11eb-8095-383c7be8a6c2.png)   
 raw 데이터와 JPEG 55 압축에선 baseline model과 비슷한 결과를 보였고, JPEG 75압축에서는 1정도 낮은 결과를 보였지만, downscale에서는 눈에 띄게 좋은 결과를 얻을 수 있었습니다. 결론적으로 저희 모델은 원본 이미지 파일 형식 판별에서도 좋은 성능을 보이며, 특히 DownSampling된 파일에서 기존 모델보다 강한 성능을 보이는 모델을 개발하였습니다.   
 
+##데이터셋
 [Dataset](https://github.com/neolgu/Split-Detection-Network/wiki/Dataset)
+
+##시연 및 소개 영상
+[Specific Description Video](https://github.com/neolgu/Split-Detection-Network/wiki/Specific-Description-Video)
 
 ## 사용된 오픈소스 및 툴, 환경
 
