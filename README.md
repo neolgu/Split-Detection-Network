@@ -9,10 +9,9 @@ During 2020 Spring ~ 2021 Fall
 ## 📕 Contents
 * Introdution
 * Structure Design
-* Development Environment
 * Description Model
 * Testing & Result
-* Open Source & Tools used
+* Open Source & Environment
 
 
 ## Introdution
@@ -33,9 +32,6 @@ During 2020 Spring ~ 2021 Fall
 
 저희는 기존의 모델들은 이러한 Gan과 Non-gan으로 제작된 이미지들을 구분하지 않고 학습하는 점에 주목하여, **이미지의 생성방식에 따라 나누어서 학습**한다면 Deepfake Detection에 더욱 좋은 효과를 보일 것이라는 아이디어를 내었고, 이를 발전시키어 저희 모델에 접목시키고자 하였습니다.
 
-
-## Development Environment
-
 ## Description Model
 
 ![image](https://user-images.githubusercontent.com/32592754/118757968-1074b580-b8a9-11eb-8d81-241af2d56e4d.png)   
@@ -49,6 +45,14 @@ During 2020 Spring ~ 2021 Fall
 
 
 ## Open Source & Tools used
+
+### Development Environment
+
+1.
+2.
+3.
+
+***
 
 __Open source & Tools used  :__   
 * OpenCV   
