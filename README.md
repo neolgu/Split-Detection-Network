@@ -26,7 +26,7 @@ During 2020 Spring ~ 2021 Fall
 
 이러한 목표를 달성하기 위해 저희는 Deepfake image를 입력하면 해당 이미지가 위조된 이미지인지, 위조되지 않은 이미지인지를 알려주는 Detection Model을 구성하는 것에 그치지 않고, 타 모델에 비하여 더욱 좋은 성능을 내기 위해 Split Detection 방식을 고안하였습니다. 자세한 설계 구조 및 아이디어는 다음 목차에서 설명하겠습니다. 
 
-또한, 이 깃헙 페이지에 올라온 model은 웹페이지, 어플리케이션 등을 접목할 수 있기에 편리하게 누구나 사용하실 수 있습니다. [이 페이지](https://github.com/neolgu/Split-Detection-Network/wiki/Specific-Description-Video)는 예시로 저희 모델을 웹페이지에 접목해본 영상과 그에 대한 설명이 담긴 곳으로, 이에 관심 있으신 분들은 참고하시기 바랍니다.
+또한, 이 깃헙 페이지에 올라온 model은 웹페이지, 어플리케이션 등을 접목할 수 있기에 편리하게 누구나 사용하실 수 있습니다. [이 페이지](https://github.com/neolgu/Split-Detection-Network/wiki/Model-used-on-Web-Page)는 예시로 저희 모델을 웹페이지에 접목해본 영상과 그에 대한 설명이 담긴 곳으로, 이에 관심 있으신 분들은 참고하시기 바랍니다.
 
 
 ## Structure Design
