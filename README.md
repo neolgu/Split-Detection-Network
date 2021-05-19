@@ -1,16 +1,11 @@
 # 🔍Split-Detection-Network📷
 
-![image](https://user-images.githubusercontent.com/32592754/118756673-6300a280-b8a6-11eb-92a0-1df4ae9f776a.png)   
-~~임시 이미지입니다~~
-
 ## 🎓 Graduation Project   
 During 2020 Spring ~ 2021 Fall   
 > Gachon Univ, AI·Software department   
 > Author :  이수빈, 유정재, 서수영, 장휘준   
 > Prof. Jung Yongju   
-   
-***
-   
+    
 ## 📕 Contents
 * Introdution
 * Structure Design
