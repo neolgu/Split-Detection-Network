@@ -36,12 +36,12 @@ During 2020 Spring ~ 2021 Fall
 
 ![image](https://user-images.githubusercontent.com/32592754/118757968-1074b580-b8a9-11eb-8d81-241af2d56e4d.png)   
 
-자세한 모델 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Model-Description)을 참고해주시길 바랍니다.
+자세한 모델 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network.wiki.git)을 참고해주시길 바랍니다.
 
 ## Testing & Result
 ![image](https://user-images.githubusercontent.com/32592754/118758037-3437fb80-b8a9-11eb-8095-383c7be8a6c2.png)   
 
-테스트를 위한 사용된 데이터셋 및 베이스 라인 모델에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset)을 참고해주시길 바랍니다.   
+테스트를 위한 사용된 데이터셋 및 베이스 라인 모델에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network.wiki.git)을 참고해주시길 바랍니다.   
 
 
 ## Open Source & Tools used
