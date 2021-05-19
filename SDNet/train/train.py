@@ -10,7 +10,7 @@ from torchvision.models import resnet18
 from train.utils import get_config
 from network.xception import Xception
 from network.FF_plus_model import TransferModel
-from network.conf import ConfModel
+from network.SDNet import SDNet
 from data.transform import xception_data_transforms, resnet18_data_transforms
 from data.dataloader import ImageLoader, NewImageLoader
 
@@ -49,7 +49,7 @@ class Trainer:
             model.fc = nn.Linear(num_ftrs, num_classes)
             return model
         elif model_name == 'conf':
-            model = ConfModel(num_classes=num_classes)
+            model = SDNet(num_classes=num_classes)
             model.load_subnet(gan_path=gan_path, n_gan_path=n_gan_path)
             return model
         else:

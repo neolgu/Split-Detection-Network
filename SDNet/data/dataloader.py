@@ -5,7 +5,6 @@ import random
 import torch.utils.data as data
 import os
 import torch
-import matplotlib.pyplot as plt
 
 
 class ImageLoader(data.Dataset):

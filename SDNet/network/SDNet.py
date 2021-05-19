@@ -5,9 +5,9 @@ from network.xception import Xception
 from network.FF_plus_model import TransferModel
 
 
-class ConfModel(nn.Module):
+class SDNet(nn.Module):
     def __init__(self, num_classes=2):
-        super(ConfModel, self).__init__()
+        super(SDNet, self).__init__()
         self.num_classes = num_classes
         self.conf = TransferModel(modelchoice='xception', num_out_classes=num_classes)
         self.Gan = TransferModel(modelchoice='xception', num_out_classes=num_classes)
