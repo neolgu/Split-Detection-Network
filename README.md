@@ -59,8 +59,8 @@ Please refer to [Here](https://github.com/neolgu/Split-Detection-Network/wiki/%E
 ## Testing & Result
 ![image](https://user-images.githubusercontent.com/32592754/118758037-3437fb80-b8a9-11eb-8095-383c7be8a6c2.png)   
 
-테스트를 위한 사용된 데이터셋 및 베이스 라인 모델에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset)을 참고해주시길 바랍니다.      
-For a description of the datasets and baseline models used for testing, please refer to [Here](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset).
+테스트를 위한 사용된 데이터셋 및 베이스 라인 모델과 결과에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset)을 참고해주시길 바랍니다.      
+For a description of the datasets and baseline models used for testing & result, please refer to [Here](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset).
 
 ## Open Source & Tools used
 
