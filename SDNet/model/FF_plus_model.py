@@ -4,12 +4,11 @@ Author: Andreas Rössler
 import os
 import argparse
 
-
 import torch
 # import pretrainedmodels
 import torch.nn as nn
 import torch.nn.functional as F
-from network.xception import xception
+from model.xception import xception
 import math
 import torchvision
 
@@ -37,6 +36,7 @@ class TransferModel(nn.Module):
     Simple transfer learning model that takes an imagenet pretrained model with
     a fc layer as base model and retrains a new fc layer for num_out_classes
     """
+
     def __init__(self, modelchoice, num_out_classes=2, dropout=0.0):
         super(TransferModel, self).__init__()
         self.modelchoice = modelchoice
@@ -137,5 +137,6 @@ if __name__ == '__main__':
     print(model)
     model = model.cuda()
     from torchsummary import summary
+
     input_s = (3, image_size, image_size)
     print(summary(model, input_s))

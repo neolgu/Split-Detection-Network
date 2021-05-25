@@ -1,12 +1,19 @@
-from train.FF_plus_trainer import Trainer
-from tester.tester import Tester
+from train_test.train import Trainer
+from train_test.test import Tester
+from argparse import ArgumentParser
+from train_test.utils import get_config
+
+parser = ArgumentParser()
+parser.add_argument('--config', type=str, default='config/config.yaml',
+                    help="training configuration")
 
 if __name__ == '__main__':
-	# trainer = Trainer("config/FF_plus.yaml")
-	# trainer.inference()
-	# for i in range(9):
-	# 	tester = Tester("config/FF_plus.yaml", "checkpoint/GAN_train/{}.tar".format(i))
-	# 	tester.test()
-	print("raw")
-	tester = Tester("config/config.yaml", "checkpoint/GAN_train/8.tar")
-	tester.test()
+    config = get_config("config/config.yaml")
+    if config['mode'] == "train":
+        trainer = Trainer("config/config.yaml")
+        trainer.train()
+    elif config['mode'] == "test":
+        tester = Tester("config/config.yaml")
+        tester.test()
+    else:
+        print("Invalid Mode. Check config file")

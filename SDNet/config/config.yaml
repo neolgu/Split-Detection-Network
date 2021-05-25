@@ -1,26 +1,37 @@
-# data parameters
-dataset_name: dataset
-train_data_path: /home/yoon/DF_dataset
+# DATA parameters
+data_path: F:\Dataset\DF_short
 dataset_paths: {
   'GAN': 'GAN',
-#  'N_GAN': 'N_GAN',
-  'Original': 'Original'
+  'N_GAN': 'N_GAN',
+  'REAL': 'REAL'
 }
-save_path: checkpoint/conf_train/
-resume: False
-model_name: xception
+model_name: conf
 num_classes: 2
-epoch: 10
-batch_size: 8
-coder: N9
-# training parameters
+
+# Choose MODE train, test
+mode: test
+
+# TRAINING & TESTING
+# environment
 cuda: True
 gpu_ids: [0]  # set the GPU ids to use, e.g. [0] or [1, 2]
-num_workers: 16
+batch_size: 32
+##########
+# training
+epoch: 10
+print_iter: 1000
+save_path: ./checkpoint/conf
+resume: False  # resume training
+resume_path: ./checkpoint/conf/2.tar  # if resume True. resume point.
+# if ___ model first train
+gan_path: ./checkpoint/gan/1.tar
+n_gan_path: ./checkpoint/ngan/1.tar
+# parameters
 lr: 0.0002
 beta1: 0.9
 beta2: 0.999
 e: 1e-08
-print_iter: 1000
-# test parameters
-load_path: checkpoint/conf_train/5.tar
+#########
+# testing
+test_path: checkpoint\conf\1.tar
+#########

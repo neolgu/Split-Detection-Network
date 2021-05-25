@@ -6,13 +6,9 @@ import torch.utils.data as data
 from torch.optim import lr_scheduler
 from argparse import ArgumentParser
 import tqdm
-from torchvision.models import resnet18
-from train.utils import get_config
-from network.xception import Xception
-from network.FF_plus_model import TransferModel
-from network.SDNet import SDNet
+from train_test.utils import get_config, model_selection
 from data.transform import xception_data_transforms, resnet18_data_transforms
-from data.dataloader import ImageLoader, NewImageLoader
+from data.dataset import ImageLoader, NewImageLoader
 
 parser = ArgumentParser()
 parser.add_argument('--config', type=str, default='config/config.yaml',
@@ -20,15 +16,16 @@ parser.add_argument('--config', type=str, default='config/config.yaml',
 
 
 class Trainer:
-    def __init__(self, config, gan_path=None, n_gan_path=None):
+    def __init__(self, config):
         self.config = get_config(config)
         self.use_cuda = self.config['cuda']
         self.device_ids = self.config['gpu_ids']
-        self.batch_size = self.config["batch_size"]
-        self.model_path = self.config["load_path"]
+        self.batch_size = self.config['batch_size']
+        self.model_path = self.config['resume_path']
+        self.resume = self.config['resume']
 
-        self.net = self.model_selection(self.config["model_name"], self.config["num_classes"],
-                                        gan_path, n_gan_path)
+        self.net = model_selection(self.config["model_name"], self.config["num_classes"],
+                                   self.config["gan_path"], self.config["n_gan_path"], resume=self.resume)
         # optimizer
         self.optimizer = torch.optim.Adam(self.net.parameters(), lr=self.config['lr'],
                                           betas=(self.config['beta1'], self.config['beta2']), eps=1e-08)
@@ -40,32 +37,15 @@ class Trainer:
         if self.use_cuda:
             self.net.to(self.device_ids[0])
 
-    def model_selection(self, model_name, num_classes, gan_path=None, n_gan_path=None):
-        if model_name == 'xception':
-            return TransferModel(modelchoice='xception', num_out_classes=num_classes)
-        elif model_name == 'resnet18':
-            model = resnet18(pretrained=False)
-            num_ftrs = model.fc.in_features
-            model.fc = nn.Linear(num_ftrs, num_classes)
-            return model
-        elif model_name == 'conf':
-            model = SDNet(num_classes=num_classes)
-            model.load_subnet(gan_path=gan_path, n_gan_path=n_gan_path)
-            return model
-        else:
-            raise NotImplementedError(model_name)
-
-    def train(self, continue_train=False):
+    def train(self):
         print("Cuda: ", torch.cuda.is_available())
         print("Device id: ", self.device_ids[0])
 
         if not os.path.exists(self.config["save_path"]):
             os.mkdir(self.config["save_path"])
 
-        train_data = ImageLoader(self.config["train_data_path"], self.config["dataset_paths"], "train",
-                                 xception_data_transforms)
-        val_data = ImageLoader(self.config["train_data_path"], self.config["dataset_paths"], "val",
-                               xception_data_transforms)
+        train_data = ImageLoader(self.config["data_path"], self.config["dataset_paths"], "train", xception_data_transforms)
+        val_data = ImageLoader(self.config["data_path"], self.config["dataset_paths"], "val", xception_data_transforms)
 
         train_dataset_size = len(train_data)
         val_dataset_size = len(val_data)
@@ -73,8 +53,9 @@ class Trainer:
         train_dataloader = data.DataLoader(train_data, batch_size=self.batch_size, shuffle=True)
         val_dataloader = data.DataLoader(val_data, batch_size=self.batch_size, shuffle=True)
 
-        if continue_train:
+        if self.resume:
             print("Continue Train")
+            print("Continue Model : {}".format(self.model_path))
             self.net.load_state_dict(torch.load(self.model_path))
 
         self.net = nn.DataParallel(self.net)
@@ -108,8 +89,8 @@ class Trainer:
                 iteration += 1
                 if not (iteration % self.config['print_iter']):
                     iteration = 0
-                    print('iteration {} train loss: {:.4f} Acc: {:.4f}'.format(iteration, iter_loss / self.batch_size,
-                                                                               iter_corrects / self.batch_size))
+                    print('iteration {} train loss: {:.4f} Acc: {:.4f}'.format(
+                        iteration, iter_loss / self.batch_size, iter_corrects / self.batch_size))
 
             epoch_loss = train_loss / train_dataset_size
             epoch_acc = train_corrects / train_dataset_size
@@ -142,7 +123,7 @@ class Trainer:
                 if epoch_acc > best_acc:
                     best_acc = epoch_acc
                     best_model_wts = self.net.state_dict()
-                f = open(self.config["save_path"] + "log.txt", "a")
+                f = open(self.config["save_path"] + "\\log.txt", "a")
                 f.write('epoch {} val loss: {:.4f} Acc: {:.4f}\n'.format(epoch + 1, epoch_loss, epoch_acc))
                 f.close()
         print("Best val Acc: {:.4f}".format(best_acc))

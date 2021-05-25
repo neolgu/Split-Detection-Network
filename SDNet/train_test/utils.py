@@ -1,6 +1,11 @@
 import os
 import yaml
 
+import torch.nn as nn
+from torchvision.models import resnet18
+from model.FF_plus_model import TransferModel
+from model.SDNet import SDNet
+
 
 # get configs
 def get_config(config):
@@ -25,3 +30,21 @@ def get_model_list(dirname, key, iteration=0):
                 return model_name
         raise ValueError('Not found models with this iteration')
     return last_model_name
+
+
+def model_selection(model_name, num_classes, gan_path=None, n_gan_path=None, resume=False):
+    print("Model: ", model_name)
+    if model_name == 'xception':
+        return TransferModel(modelchoice='xception', num_out_classes=num_classes)
+    elif model_name == 'resnet18':
+        model = resnet18(pretrained=False)
+        num_ftrs = model.fc.in_features
+        model.fc = nn.Linear(num_ftrs, num_classes)
+        return model
+    elif model_name == 'conf':
+        model = SDNet(num_classes=num_classes)
+        if not resume:
+            model.load_subnet(gan_path=gan_path, n_gan_path=n_gan_path)
+        return model
+    else:
+        raise NotImplementedError(model_name)

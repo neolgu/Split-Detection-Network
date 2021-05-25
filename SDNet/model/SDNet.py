@@ -1,16 +1,19 @@
 import torch.nn as nn
 import torch.nn.functional as F
 import torch
-from network.xception import Xception
-from network.FF_plus_model import TransferModel
+
+from model.FF_plus_model import TransferModel
 
 
 class SDNet(nn.Module):
     def __init__(self, num_classes=2):
         super(SDNet, self).__init__()
         self.num_classes = num_classes
+        # Gan / Non-GAN Discriminator
         self.conf = TransferModel(modelchoice='xception', num_out_classes=num_classes)
+        # GAN Detector
         self.Gan = TransferModel(modelchoice='xception', num_out_classes=num_classes)
+        # Non-GAN Detector
         self.nonGan = TransferModel(modelchoice='xception', num_out_classes=num_classes)
 
     def forward(self, x):
@@ -26,8 +29,11 @@ class SDNet(nn.Module):
         return y1 + y2
 
     def load_subnet(self, gan_path, n_gan_path):
+        print("Load GAN Detector. Path={}".format(gan_path))
         self.Gan.load_state_dict(torch.load(gan_path))
+        print("Load Non-GAN Detector. Path={}".format(gan_path))
         self.nonGan.load_state_dict(torch.load(n_gan_path))
 
+        # freeze GAN, Non-GAN Detector
         self.Gan.eval()
         self.nonGan.eval()
