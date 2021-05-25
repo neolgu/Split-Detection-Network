@@ -61,25 +61,80 @@ Please refer to [Here](https://github.com/neolgu/Split-Detection-Network/wiki/%E
 
 테스트를 위한 사용된 데이터셋 및 베이스 라인 모델과 결과에 대한 설명은 [이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset)을 참고해주시길 바랍니다.      
 For a description of the datasets and baseline models used for testing & result, please refer to [Here](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset).
-
-## Open Source & Tools used
-
-### Development Environment
-
-1.
-2.
-3.
-
 ***
 
+## Configure Environment
+### Clone Repository
+```
+git clone https://github.com/neolgu/Split-Detection-Network
+```
+
+### Requirements
+```
+pip3 install -r requirements.txt  // or pip, conda, ...
+```
+
+### Dataset
+* [WIKI](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset#dataset)
+
+## Getting Started
+### Edit config: config/config.yaml
+edit config.yaml argument you want!
+
+example)
+
+To train: ```mode: train```
+
+To test: ```mode: test```
+
+### Run
+To run application:
+```
+python main.py  // after edit config.yaml!!
+```
+
+## Open Source & Tools used
 __Open source & Tools used  :__   
 * OpenCV   
 * Dlib   
 * Python   
-* Pytorch   
+* Pytorch
 * face forensics++ (provided on paper)   
 
 __Computing environmnet :__      
 * CPU: Intel® Xeon® CPU E3-1231   
 * GPU: Nvidia GEFORCE TITAN XP   
+
+## Citations
+```bibtex
+@misc{rössler2019faceforensics,
+      title={FaceForensics++: Learning to Detect Manipulated Facial Images}, 
+      author={Andreas Rössler and Davide Cozzolino and Luisa Verdoliva and Christian Riess and Justus Thies and Matthias Nießner},
+      year={2019},
+      eprint={1901.08971},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+```bibtex
+@misc{chollet2017xception,
+      title={Xception: Deep Learning with Depthwise Separable Convolutions}, 
+      author={François Chollet},
+      year={2017},
+      eprint={1610.02357},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+```bibtex
+@misc{he2015deep,
+      title={Deep Residual Learning for Image Recognition}, 
+      author={Kaiming He and Xiangyu Zhang and Shaoqing Ren and Jian Sun},
+      year={2015},
+      eprint={1512.03385},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
+
 
