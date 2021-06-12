@@ -3,7 +3,7 @@
 ## 🎓 Graduation Project   
 During 2020 Spring ~ 2021 Fall   
 > Gachon Univ, AI·Software department   
-> Author :  Lee Soobin, Yu Jeongjae, Seo Sooyoung, Jang Hwijun   
+> Author :  Lee Subin, Yu Jeongjae, Seo Sooyoung, Jang Hwijun   
 > Prof. Jung Yongju   
     
 ## 📕 Contents
