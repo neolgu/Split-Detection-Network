@@ -12,6 +12,7 @@ During 2020 Spring ~ 2021 Fall
 * Model Description 
 * Testing & Result
 * Open Source & Environment
+* Web Service Publication and Simulation
 
 
 ## Introdution
@@ -136,5 +137,7 @@ __Computing environmnet :__
       primaryClass={cs.CV}
 }
 ```
-
-
+## Web Service Publication and Simulation
+### For publication we used Google Cloud
+### Backend was developed with Flask server and Frontend with Vue.js
+[이 곳](https://github.com/neolgu/Split-Detection-Network/wiki/%E2%9A%99Model-Description)을 참고해주시길 바랍니다.
