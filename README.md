@@ -24,7 +24,12 @@ To achieve this goal, we designed a Split Detection method to not only construct
 
 Also, the model on this page can be applied to web pages, applications, etc., so you can use it conveniently. [This Page](https://github.com/neolgu/Split-Detection-Network/wiki/Model-used-on-Web-Page) is an example of a video that combines our model with a web page and an explanation of it, so if you're interested in it, please refer to it.
 
-
+## Web Service Publication and Simulation
+![캡처](https://user-images.githubusercontent.com/32592676/121802788-407d6180-cc79-11eb-932f-c0d5533fbc9c.PNG)
+* For publication, we used Google Cloud
+* Backend was developed with Flask server and Frontend with Vue.js
+* To experience publication and simulation, Click [Here](https://github.com/neolgu/Split-Detection-Network/wiki/Web-Service-Publication)
+* Anyone can use our server API. [Check the protocol](https://github.com/neolgu/Split-Detection-Network/wiki/API-Server-Protocol#split-detection-network-api-protocol).
 
 
 ## Structure Design
@@ -119,7 +124,4 @@ __Computing environmnet :__
       primaryClass={cs.CV}
 }
 ```
-## Web Service Publication and Simulation
-* For publication, we used Google Cloud
-* Backend was developed with Flask server and Frontend with Vue.js
-* To experience publication and simulation, Click [Here](https://github.com/neolgu/Split-Detection-Network/wiki/Web-Service-Publication)
+
