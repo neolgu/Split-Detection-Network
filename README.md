@@ -75,7 +75,7 @@ pip3 install -r requirements.txt  // or pip, conda, ...
 ```
 
 ### Dataset
-* [WIKI](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset#dataset)
+* [Dataset](https://github.com/neolgu/Split-Detection-Network/wiki/Testing-Result-&-Dataset#dataset)
 
 ## Getting Started
 ### Edit config: config/config.yaml
