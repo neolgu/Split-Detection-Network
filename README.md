@@ -138,6 +138,6 @@ __Computing environmnet :__
 }
 ```
 ## Web Service Publication and Simulation
-* For publication we used Google Cloud
+* For publication, we used Google Cloud
 * Backend was developed with Flask server and Frontend with Vue.js
 * To experience publication and simulation, Click [Here](https://github.com/neolgu/Split-Detection-Network/wiki/Web-Service-Publication)
